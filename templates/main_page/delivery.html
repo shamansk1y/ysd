@@ -1,0 +1,59 @@
+{% extends 'main.html' %}
+
+{% load static %}
+
+{% block content %}
+
+
+<div class="sg-page-content">
+
+    <section class="contact-section">
+        <div class="container">
+            <div class="sa-box mb-3">
+                <div class="page-title title">
+                    <h4>{{ delivery.title }}</h4>
+                </div>
+                <div class="contact-content">
+                    <div class="row">
+
+                        <div class="col-md-3">
+                          <div class="about-fixed">
+                              <div class="my-pic">
+                                  <img src="{{ delivery.image.url }}" alt="{{ delivery.title }}" class="img-fluid">
+                              </div>
+                          </div>
+                        </div>
+
+
+                        <!-- Blog Post Start -->
+                        <div class="col-md-9">
+                            <div class="col-md-12 page-body">
+                                <div class="row">
+
+                                    <div class="col-md-12 content-page">
+                                        <div class="col-md-12 blog-post">
+
+                                            <!-- Post Headline Start -->
+                                            <div class="post-title">
+                                                <h1 class="text-dark text-uppercase">{{ delivery.title }}</h1>
+                                            </div>
+                                            <!-- Post Headline End -->
+
+
+                                            <p>{{ delivery.content|safe }}</p>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div><!-- /.contact-content -->
+            </div><!-- /.sa-box -->
+        </div><!-- /.container -->
+    </section><!-- /.contact-section -->
+
+</div><!-- /.sg-page-content -->
+
+{% endblock %}

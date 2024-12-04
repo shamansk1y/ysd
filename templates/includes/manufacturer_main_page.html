@@ -1,0 +1,22 @@
+<section class="product-section p-0">
+    <div class="container">
+        <div class="sa-box">
+            <div class="title justify-content-between">
+                <h1>Brands</h1>
+            </div>
+
+            <div class="recent-product-slider">
+                {% for brand in brands %}
+                    <div class="recent-product">
+                        <div class="product-thumb">
+                            <a href="{% url 'store:brand_detail' slug=brand.slug %}"><img src="{{ brand.image.url }}" alt="Image" class="img-fluid"></a>
+                        </div>
+                        <div class="overlay">
+                            <h2><a href="{% url 'store:brand_detail' slug=brand.slug %}"><i class="fa-solid fa-link"></i></a></h2>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div><!-- /.sa-box -->
+    </div><!-- /.container -->
+</section><!-- /.product-section -->

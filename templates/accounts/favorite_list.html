@@ -1,0 +1,101 @@
+{% extends 'main.html' %}
+
+{% load static %}
+
+
+{% block content %}
+
+<div class="sg-page-content">
+
+    <section class="sg-global-content">
+        <div class="container">
+            <div class="row">
+
+                {% include 'includes/profile_sidebar.html' %}
+
+                <div class="col-lg-9">
+                      <div class="sg-table sa-box mb-3">
+                          <form class="woocommerce-cart-form" action="#">
+                              <table class="table">
+                                  <thead>
+                                      <tr>
+                                          <th scope="col">Product</th>
+                                          <th scope="col">Date</th>
+                                          <th scope="col">Status</th>
+                                          <th scope="col">Total</th>
+                                          <th scope="col">Action</th>
+                                          <th scope="col">Delete item</th>
+                                      </tr>
+                                  </thead>
+                                  <tbody>
+                                    {% for item in favorites %}
+                                        <tr>
+                                            <th scope="row">
+                                                <div class="product">
+                                                    <a href="{{ item.product.get_absolute_url  }}">
+                                                        <span class="product-thumb">
+                                                            <img src="{{item.product.image.url}}" alt="Image" class="img-fluid">
+                                                        </span>
+                                                        <div class="text">
+                                                            <p>{{ item.product.name }}</p>
+                                                        </div>
+                                                    </a>
+                                                </div><!-- /.product -->
+                                            </th>
+                                            <td>{{item.created_at}}</td>
+                                            <td>
+                                                <div class="complete">
+                                                    <span>{{ item.product.get_status_display }}</span>
+                                                </div>
+                                            </td>
+                                            <td>
+                                              {% if item.product.price == item.product.main_price %}
+                                                <span>${{ item.product.price }}</span>
+                                              {% else %}
+                                                <span>
+                                                  ${{ item.product.discounted_price }}
+                                                  <del style="color: red;">{{ item.product.main_price }}</del>
+                                                  </span>
+                                              {% endif %}
+                                            </td>
+                                            <td>
+                                                <div class="add-to-cart">
+                                                  {% if item.product.id in product_ids_in_cart %}
+
+                                                  <a href='{% url "cart:add_cart_no_redirect" item.product.id %}' style="background-color: green; color: white;" class="btn">
+                                                      <span class="fas fa-check"></span>In cart
+                                                  </a>
+                                                  {% else %}
+
+                                                    <a href='{% url "cart:add_cart_no_redirect" item.product.id %}' class="btn">Add to cart</a>
+                                                  {% endif %}
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="delete">
+                                            <a href="{% url 'accounts:remove_from_favorite' item.product.slug %}" onclick="return confirm('Are you sure you want to delete this item?')" class="btn btn-danger"> Remove</a>
+                                              </div>
+                                          </td>
+                                      </tr>
+
+                                        {% endfor %}
+
+                                  </tbody>
+                              </table>
+                          </form>
+
+                          <!-- <div class="show-more mt-4">
+                              <a href="#" class="btn btn-primary">Show more</a>
+                          </div> -->
+
+                      </div>
+                  </div>
+
+
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </section><!-- /.profile-section -->
+
+</div><!-- /.sg-page-content -->
+
+{% endblock %}

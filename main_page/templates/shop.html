@@ -1,0 +1,280 @@
+{% extends 'main.html' %}
+
+{% load static %}
+
+{% block content %}
+
+    <div class="sg-page-content">
+    <section class="grid-view-tab">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-lg-3">
+                    <div class="sg-sitebar sa-box">
+                        <div class="accordion" id="accordionExample">
+                            <div class="accordion-item">
+                                <div class="accordion-header" id="ac1">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="true" aria-controls="collapse1">All Categories</button>
+                                </div>
+                                <div id="collapse1" class="accordion-collapse collapse show" aria-labelledby="ac1" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <ul class="global-list">
+                                            <li><a href="#">Accessories</a></li>
+                                            <li><a href="#">Fashion</a></li>
+                                            <li><a href="#">Shoes</a></li>
+                                            <li><a href="#">Sport Shorts</a></li>
+                                            <li><a href="#">Beauty shop</a></li>
+                                            <li><a href="#">Women Clothing</a></li>
+                                            <li><a href="#">Men Clothing</a></li>
+                                            <li><a href="#">Electronics Accessories</a></li>
+                                            <li><a href="#">Computer Accessories</a></li>
+                                            <li><a href="#">Laptop</a></li>
+                                            <li><a href="#">Smart Phone</a></li>
+                                            <li><a href="#">Smart Phone</a></li>
+                                            <li><a href="#">Kitchen Accessories</a></li>
+                                            <li><a href="#">Show more</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <div class="accordion-header" id="ac2">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">Price</button>
+                                </div>
+                                <div id="collapse2" class="accordion-collapse collapse" aria-labelledby="ac2" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <div class="price-top">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" placeholder="Min">
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" placeholder="Max">
+                                            </div>
+                                            <button type="submit" class="btn">Apply</button>
+                                        </div>
+                                        <div id="price_slider"></div>
+                                        <div class="price_slider_amount">
+                                            <input type="text" id="amount">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <div class="accordion-header" id="ac3">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">Brand</button>
+                                </div>
+                                <div id="collapse3" class="accordion-collapse collapse" aria-labelledby="ac3" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <form action="#" class="form-checkbox">
+                                            <div class="form-group">
+                                                <input type="checkbox" id="samsung">
+                                                <label for="samsung">Samsung</label>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="checkbox" id="apple">
+                                                <label for="apple">Apple</label>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="checkbox" id="xiaome">
+                                                <label for="xiaome">Xiaome</label>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="checkbox" id="iphone">
+                                                <label for="iphone">iPhone</label>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="checkbox" id="realme">
+                                                <label for="realme">Realme</label>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="checkbox" id="vivo">
+                                                <label for="vivo">Vivo</label>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="checkbox" id="techno">
+                                                <label for="techno">Techno</label>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="checkbox" id="javascript">
+                                                <label for="javascript">Javascript</label>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <div class="accordion-header" id="ac4">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4" aria-expanded="false" aria-controls="collapse4">Size</button>
+                                </div>
+                                <div id="collapse4" class="accordion-collapse collapse" aria-labelledby="ac4" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <form action="#" class="form-checkbox">
+                                            <div class="form-group">
+                                                <input type="checkbox" id="small">
+                                                <label for="small">Small</label>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="checkbox" id="medium">
+                                                <label for="medium">Medium</label>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="checkbox" id="large">
+                                                <label for="large">Large</label>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="checkbox" id="extra">
+                                                <label for="extra">Extra Large</label>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <div class="accordion-header" id="ac5">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5" aria-expanded="false" aria-controls="collapse5">Color</button>
+                                </div>
+                                <div id="collapse5" class="accordion-collapse collapse" aria-labelledby="ac5" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <form action="#" class="form-checkbox">
+                                            <div class="form-group">
+                                                <input type="checkbox" id="white">
+                                                <label for="white">White</label>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="checkbox" id="black">
+                                                <label for="black">Black</label>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="checkbox" id="blue">
+                                                <label for="blue">Blue</label>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="checkbox" id="green">
+                                                <label for="green">Green</label>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="checkbox" id="brown">
+                                                <label for="brown">Brown</label>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="checkbox" id="grey">
+                                                <label for="grey">Grey</label>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <div class="accordion-header" id="ac6">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6" aria-expanded="false" aria-controls="collapse6">Ratting</button>
+                                </div>
+                                <div id="collapse6" class="accordion-collapse collapse" aria-labelledby="ac6" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <form action="#" class="form-checkbox">
+                                            <div class="form-group">
+                                                <input type="checkbox" id="rating5">
+                                                <label for="rating5">
+                                                    <span class="active"><i class="fa-solid fa-star"></i></span>
+                                                    <span class="active"><i class="fa-solid fa-star"></i></span>
+                                                    <span class="active"><i class="fa-solid fa-star"></i></span>
+                                                    <span class="active"><i class="fa-solid fa-star"></i></span>
+                                                    <span class="active"><i class="fa-solid fa-star"></i></span>
+                                                </label>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="checkbox" id="rating4">
+                                                <label for="rating4">
+                                                    <span class="active"><i class="fa-solid fa-star"></i></span>
+                                                    <span class="active"><i class="fa-solid fa-star"></i></span>
+                                                    <span class="active"><i class="fa-solid fa-star"></i></span>
+                                                    <span class="active"><i class="fa-solid fa-star"></i></span>
+                                                    <span><i class="fa-solid fa-star"></i></span>
+                                                </label>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="checkbox" id="rating3">
+                                                <label for="rating3">
+                                                    <span class="active"><i class="fa-solid fa-star"></i></span>
+                                                    <span class="active"><i class="fa-solid fa-star"></i></span>
+                                                    <span class="active"><i class="fa-solid fa-star"></i></span>
+                                                    <span><i class="fa-solid fa-star"></i></span>
+                                                    <span><i class="fa-solid fa-star"></i></span>
+                                                </label>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="checkbox" id="rating2">
+                                                <label for="rating2">
+                                                    <span class="active"><i class="fa-solid fa-star"></i></span>
+                                                    <span class="active"><i class="fa-solid fa-star"></i></span>
+                                                    <span><i class="fa-solid fa-star"></i></span>
+                                                    <span><i class="fa-solid fa-star"></i></span>
+                                                    <span><i class="fa-solid fa-star"></i></span>
+                                                </label>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="checkbox" id="rating1">
+                                                <label for="rating1">
+                                                    <span class="active"><i class="fa-solid fa-star"></i></span>
+                                                    <span><i class="fa-solid fa-star"></i></span>
+                                                    <span><i class="fa-solid fa-star"></i></span>
+                                                    <span><i class="fa-solid fa-star"></i></span>
+                                                    <span><i class="fa-solid fa-star"></i></span>
+                                                </label>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- /.accordion -->
+                    </div><!-- /.sg-sitebar -->
+                </div>
+                <div class="col-md-8 col-lg-9">
+                    <div class="sg-category-content sg-filter sa-box mb-3">
+                        <div class="d-flex justify-content-between mb-4">
+                            <div class="left-content">
+                                <div class="title d-flex">
+                                    <h1>Sort by</h1>
+                                    <select class="form-control">
+                                        <option value="">Default Sort </option>
+                                        <option value="">Sort by latest </option>
+                                        <option value="">Sort by popularity</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="right-content">
+                                <div class="d-flex">
+                                    <select class="form-control">
+                                        <option value="">Show by 10</option>
+                                        <option value="">Show by 15</option>
+                                        <option value="">Show by 20</option>
+                                        <option value="">Show by 30</option>
+                                    </select>
+                                    <ul class="filter-tabs global-list">
+                                        <li class="grid-view-tab active"><span class="mdi mdi-name mdi-grid"></span></li>
+                                        <li class="list-view-tab"><span class="mdi mdi-name mdi-format-list-bulleted"></span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <ul class="products grid-4">
+                            {% for product in shop %}
+                                <li>
+                                    {% include 'product_card_in_list.html' %}
+                                </li>
+                            {% endfor %}
+
+
+                        </ul>
+                        <div class="show-more mt-4">
+                           <a href="#" class="btn btn-primary">Show more</a>
+                        </div>
+                    </div><!-- /.sg-category-content -->
+                </div>
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </section><!-- /.category-section -->
+
+</div>
+
+{% endblock %}

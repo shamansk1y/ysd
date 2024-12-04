@@ -1,0 +1,26 @@
+{% extends 'main.html' %}
+
+{% load static %}
+
+{% block content %}
+
+
+<br>
+<section class="campaign-section p-0">
+    <div class="container">
+        <div class="title justify-content-between">
+            <h1>Special offer</h1>
+        </div>
+        <div class="row">
+          {% for promo in promos %}
+            <div class="col-md-6">
+                <a href="{% url 'store:promo_detail' slug=promo.slug %}" class="add-banner">
+                    <img src="{{ promo.image.url }}" alt="Image" class="img-fluid">
+                </a>
+            </div>
+            {% endfor %}
+
+        </div><!-- /.row -->
+    </div><!-- /.container -->
+</section><!-- /.campaign-section -->
+{% endblock %}

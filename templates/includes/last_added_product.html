@@ -1,0 +1,16 @@
+<section class="products-section">
+    <div class="container">
+        <div class="sa-box">
+            <div class="title justify-content-between">
+                <h1>New products</h1>
+            </div>
+            <ul class="products grid-6">
+                {% for product in last_products %}
+                    <li>
+                        {% include 'includes/product_card_in_list.html' %}
+                    </li>
+                {% endfor %}
+            </ul>
+        </div><!-- /.sa-box -->
+    </div><!-- /.container -->
+</section>

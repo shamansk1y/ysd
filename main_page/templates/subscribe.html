@@ -1,0 +1,27 @@
+<section class="subscribe-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="subscribe-text">
+                    <div class="icon">
+                        <span><i class="fa-regular fa-envelope"></i></span>
+                    </div>
+                    <div class="text">
+                        <p>Subscribe to our newsletter</p>
+                        <span>Get all the latest information on Events, Sales and Offers.</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="subscribe-form">
+                    <form method="post">
+                        {% csrf_token %}
+                        {{ subscription.email }}
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+
+        </div><!-- /.row -->
+    </div><!-- /.container -->
+</section><!-- /.subscribe-section -->

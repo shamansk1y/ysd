@@ -1,0 +1,85 @@
+{% extends 'main.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="sg-page-content">
+            <section class="contact-section">
+                <div class="container">
+                    <div class="sa-box mb-3">
+                        <div class="page-title title">
+                            <h1>Contact Us</h1>
+                        </div>
+                        <div class="contact-content">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="title b-0">
+                                        <h1>Frequently ask the question</h1>
+                                    </div>
+                                    <form method="post">
+                                        {% csrf_token %}
+                                        <div class="control-group">
+                                            {{ contact_us.name }}
+                                            <p class="help-block text-danger"></p>
+                                        </div>
+                                        <div class="control-group">
+                                            {{ contact_us.email }}
+                                            <p class="help-block text-danger"></p>
+                                        </div>
+                                        <div class="control-group">
+                                            {{ contact_us.subject }}
+                                            <p class="help-block text-danger"></p>
+                                        </div>
+                                        <div class="control-group">
+                                            {{ contact_us.message }}
+                                            <p class="help-block text-danger"></p>
+                                        </div>
+                                        <div>
+                                            <button class="btn btn-dark" type="submit" id="sendMessageButton">Send Message</button>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="contact-info">
+                                        <div class="title b-0">
+                                            <h1>Contacts</h1>
+                                        </div>
+                                        <p>York Snack Food Distr. Inc., based in Philadelphia, Pennsylvania, has been a key player in the U.S. snack market for over 20 years. Specializing in chips, snacks, and candy, the company distributes popular brands such as Wise, Frito Lay, Utz, Mr. G, Rap Snack, and Andy Capp's. Known for its commitment to quality and customer satisfaction, York Snack Food has built a loyal customer base by offering a diverse selection of tasty treats that cater to all tastes and preferences.</p>
+                                        <div class="contact-list">
+                                            <ul class="global-list">
+                                                <li><span><i class="fa-solid fa-location-dot"></i></span> {{contacts.address}}</li>
+                                                <li><span><i class="fa-solid fa-phone"></i></span> <a href="tel:{{contacts.phone_1}}">{{contacts.phone_1}}</a></li>
+                                                <li><span><i class="fa-regular fa-envelope"></i></span> <a href="#">{{contacts.email}}</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="social">
+                                            <div class="title b-0 mb-0">
+                                                <h1>Follow Us</h1>
+                                            </div>
+                                            <ul class="global-list">
+                                                <li><a href="#"><span><i class="fa-brands fa-facebook"></i></span></a></li>
+                                                <li><a href="#"><span><i class="fa-brands fa-twitter"></i></span></a></li>
+                                                <li><a href="#"><span><i class="fa-brands fa-linkedin"></i></span></a></li>
+                                                <li><a href="#"><span><i class="fa-brands fa-instagram"></i></span></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- /.contact-content -->
+                        <br/>
+                        <div class="bg-light p-30 mb-30">
+                          <<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6103.2220187494895!2d-74.92759462511098!3d40.106384974471396!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c14d0b0c487b3b%3A0x2f33417c53b7ebb!2s1366%20Ford%20Rd%2C%20Bensalem%2C%20PA%2019020!5e0!3m2!1sen!2sus!4v1722561612649!5m2!1sen!2sus" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                      </div>
+                    </div><!-- /.sa-box -->
+                </div><!-- /.container -->
+            </section><!-- /.contact-section -->
+
+
+
+        </div><!-- /.sg-page-content -->
+
+
+
+{% endblock %}

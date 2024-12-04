@@ -1,0 +1,24 @@
+{% extends 'main.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<section class="products-section">
+    <div class="container">
+        <div class="sa-box">
+            <div class="title justify-content-between">
+                <h1>Special Offer</h1>
+            </div>
+            <ul class="products grid-6">
+                {% for product in products %}
+                    <li>
+                        {% include 'product_card_in_list.html' %}
+                    </li>
+                {% endfor %}
+            </ul>
+        </div><!-- /.sa-box -->
+    </div><!-- /.container -->
+</section>
+
+{% endblock %}

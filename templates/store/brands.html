@@ -1,0 +1,37 @@
+{% extends 'main.html' %}
+
+
+{% load static %}
+
+{% block content %}
+
+<section class="sg-blog-section pt-0">
+            <div class="container">
+                <div class="sa-box">
+                    <div class="title justify-content-between">
+                        <h1>All categories</h1>
+                    </div>
+                    <div class="row">
+                        {% for brand in brands %}
+                            <div class="col-md-6 col-lg-3">
+                                <div class="post">
+                                    <div class="entry-header">
+                                        <div class="entry-thumbnail">
+                                            <a href="{% url 'store:brand_detail' slug=brand.slug %}"><img src="{{ brand.image.url }}" alt="Image" class="img-fluid"></a>
+                                        </div>
+                                        <div class="entry-content">
+                                            <h2 class="entry-title"><a href="{% url 'store:brand_detail' slug=brand.slug %}">{{ brand.title }}</a></h2>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+
+
+                    </div><!-- /.row -->
+                </div><!-- /.sa-box -->
+            </div><!-- /.container -->
+        </section><!-- /.sg-blog-section -->
+
+{% endblock %}

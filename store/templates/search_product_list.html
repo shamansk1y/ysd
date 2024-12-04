@@ -1,0 +1,29 @@
+{% extends 'main.html' %}
+
+{% load static %}
+
+{% block content %}
+
+
+
+<section class="products-section">
+    <div class="container">
+        <div class="sa-box">
+          {% if page_products %}
+              <ul class="products grid-4">
+                  {% for product in page_products %}
+                      <li>
+                          {% include 'product_card_in_list.html' %}
+                      </li>
+                  {% endfor %}
+              </ul>
+          {% else %}
+              <p>No result found. Please try again.</p>
+          {% endif %}
+        </div><!-- /.sa-box -->
+    </div><!-- /.container -->
+</section>
+
+
+
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends 'main.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<!-- Breadcrumb Start -->
+
+<div class="sg-breadcrumb">
+    <div class="container">
+        <ol class="breadcrumb justify-content-center">
+            <li class="breadcrumb-item"><a href="{% url 'home' %}">Main page</a></li>
+            <li class="breadcrumb-item"><a href="{% url 'store:brands' %}">All Brands</a></li>
+            <li class="breadcrumb-item"><a href="">{{ brand.title }}</a></li>
+        </ol>
+    </div>
+</div><!-- /.sg-breadcrumb -->
+<hr>
+<div class="container">
+    <div class="row">
+
+        <!-- Post Image Start -->
+        <div class="col-md-3">
+            <div class="about-fixed">
+                <div class="my-pic">
+                    <img src="{{ brand.image.url }}" alt="{{ brand.title }}" class="img-fluid">
+                </div>
+
+            </div>
+        </div>
+        <!-- Post Image End -->
+
+        <!-- Blog Post Start -->
+        <div class="col-md-9">
+            <div class="col-md-12 page-body">
+                <div class="row">
+
+                    <div class="col-md-12 content-page">
+                        <div class="col-md-12 blog-post">
+
+                            <!-- Post Headline Start -->
+                            <div class="post-title">
+                                <h1 class="text-dark text-uppercase">{{ brand.title }}</h1>
+                            </div>
+                            <!-- Post Headline End -->
+
+
+                            <p>{{ brand.description|safe }}</p>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br/>
+{% endblock %}

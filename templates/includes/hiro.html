@@ -1,0 +1,39 @@
+{% load static %}
+
+<div class="hero-section">
+    <div class="hero-content">
+        <div id="hero-slider" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                {% for item in slider %}
+                    <div class="carousel-item{% if forloop.first %} active{% endif %}" style="background-image: url({{ item.image_bg.url }});">
+                        <div class="container">
+                            <div class="item-content">
+                                <div class="row">
+                                    <div class="col-md-4 order-md-last">
+                                        <div class="thumb animated slideInUp">
+                                            <img src="{{ item.image.url }}" alt="Image" class="img-fluid">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8 align-self-center">
+                                        <div class="hero-text">
+                                            <h2 class="animated slideInUp">{{ item.h_1 }}</h2>
+                                            <h3 class="animated slideInUp">{{ item.desc }}</h3>
+                                            <a href="{{ item.tab_url }}" class="btn btn-primary animated slideInUp">{{ item.tab }} <span class="fa-solid fa-arrow-right"></span></a>
+                                        </div>
+                                    </div>
+                                </div><!-- /.row -->
+                            </div><!-- /.item-content -->
+                        </div><!-- /.container -->
+                    </div>
+                {% endfor %}
+            </div>
+
+            <ol class="carousel-indicators">
+                {% for item in slider %}
+                    <li data-bs-target="#hero-slider" data-bs-slide-to="{{ forloop.counter0 }}" class="{% if forloop.first %}active{% endif %}"></li>
+                {% endfor %}
+            </ol>
+
+        </div><!-- /.hero-content -->
+    </div><!-- /.hero-content -->
+</div><!-- /.hero-section -->

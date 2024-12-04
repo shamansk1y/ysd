@@ -1,0 +1,259 @@
+{% extends 'main.html' %}
+
+{% load static %}
+
+{% block content %}
+
+
+<div class="sg-page-content">
+
+    <section class="grid-view-tab">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-lg-3">
+                    <div class="sg-sitebar sa-box">
+                        <div class="accordion" id="accordionExample">
+                            <div class="accordion-item">
+                                <div class="accordion-header" id="ac1">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="true" aria-controls="collapse1">All Categories</button>
+                                </div>
+                                <div id="collapse1" class="accordion-collapse collapse show" aria-labelledby="ac1" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <ul class="global-list">
+                                            <li><a href="#">Clothes</a></li>
+                                            <li><a href="#">Fashion</a></li>
+                                            <li><a href="#">Entertainment</a></li>
+                                            <li><a href="#">Lifestyle</a></li>
+                                            <li><a href="#">Shoes</a></li>
+                                            <li><a href="#">Shopping</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <div class="accordion-header" id="ac2">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">Recent Post</button>
+                                </div>
+                                <div id="collapse2" class="accordion-collapse collapse" aria-labelledby="ac2" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <div class="widget widget_recent_entries">
+                                            <ul class="global-list">
+                                                <li class="media">
+                                                    <div class="entry-thumbnail">
+                                                        <a href="#"><img src="images/product/2.png" alt="Image" class="img-fluid"></a>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <h5><a href="#">Trendy Shoes For Man With High Quality...</a></h5>
+                                                        <span class="post-date">09 Apr 2022</span>
+                                                    </div>
+                                                </li>
+                                                <li class="media">
+                                                    <div class="entry-thumbnail">
+                                                        <a href="#"><img src="images/product/3.png" alt="Image" class="img-fluid"></a>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <h5><a href="#">Wireless Bluetooth Headphones...</a></h5>
+                                                        <span class="post-date">08 Apr 2022</span>
+                                                    </div>
+                                                </li>
+                                                <li class="media">
+                                                    <div class="entry-thumbnail">
+                                                        <a href="#"><img src="images/product/w1.png" alt="Image" class="img-fluid"></a>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <h5><a href="#">Apple Watch Series 7 45mm Sports Band...</a></h5>
+                                                        <span class="post-date">07 Apr 2022</span>
+                                                    </div>
+                                                </li>
+                                                <li class="media">
+                                                    <div class="entry-thumbnail">
+                                                        <a href="#"><img src="images/product/b1.png" alt="Image" class="img-fluid"></a>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <h5><a href="#">Calvin Klein Men's Slim Fit Suit...</a></h5>
+                                                        <span class="post-date">06 Apr 2022</span>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <div class="accordion-header" id="ac3">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">Tags</button>
+                                </div>
+                                <div id="collapse3" class="accordion-collapse collapse" aria-labelledby="ac3" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <div class="tagcloud">
+                                            <a href="#">fashion</a>
+                                            <a href="#">style</a>
+                                            <a href="#">women</a>
+                                            <a href="#">photography</a>
+                                            <a href="#">shopping</a>
+                                            <a href="#">video</a>
+                                            <a href="#">events</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- /.accordion -->
+                    </div><!-- /.sg-sitebar -->
+                </div>
+                <div class="col-md-8 col-lg-9">
+                    <div class="blog-details sa-box mb-3">
+                        <div class="post">
+                            <div class="entry-header">
+                                <div class="entry-thumbnail">
+                                    <a href="#"><img src="{{ post.image.url }}" alt="Image" class="img-fluid"></a>
+                                </div>
+                            </div>
+                            <div class="entry-content">
+                                <div class="entry-meta">
+                                    <ul class="global-list">
+                                        <li><a href="#"><img src="{% static 'images/admin/admin_img.jpg'  %}" alt="Image" class="img-fluid">POSTED BY ADMIN</a></li>
+                                        <li><a href="#"><span><i class="fa-regular fa-calendar-days"></i></span>{{ post.pub_date|date:"j.m.Y" }}</a></li>
+                                        <li><a href="#"><span><i class="fa-regular fa-comments"></i></span>0  Comment</a></li>
+                                        <li><a href="#"><span><i class="fa-solid fa-share-nodes"></i></span>Share</a></li>
+                                    </ul>
+                                </div>
+                                <h2 class="entry-title">{{ post.title }}</h2>
+                                <p>{{ post.content|safe }}</p>
+                            </div>
+                        </div><!-- /.post -->
+                        <div class="comment-area">
+                            <div class="title">
+                                <h1>Comment</h1>
+                            </div>
+                            <ul class="comment-list global-list">
+                                <li>
+                                    <div class="comment_info">
+                                        <div class="commenter-avatar">
+                                            <a href="#"><img class="img-fluid" src="images/blog/3.png" alt="Image"></a>
+                                        </div>
+                                        <div class="comment-box">
+                                            <div class="comment-title">
+                                                <span class="title-1"><a href="#" class="url">Dariyen Summy</a></span>
+                                                <div class="comment-meta">
+                                                    <ul class="global-list">
+                                                        <li><a href="#">08 Apr 2022</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-</p>
+                                            <div class="comment-icon">
+                                                <ul class="global-list">
+                                                    <li><a href="#"><span><i class="fa-regular fa-thumbs-up"></i></span></a></li>
+                                                    <li><a href="#"><span><i class="fa-solid fa-share"></i></span></a></li>
+                                                </ul>
+                                            </div>
+                                        </div><!-- /.comment-box -->
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="comment_info">
+                                        <div class="commenter-avatar">
+                                            <a href="#"><img class="img-fluid" src="images/blog/4.png" alt="Image"></a>
+                                        </div>
+                                        <div class="comment-box">
+                                            <div class="comment-title">
+                                                <span class="title-1"><a href="#" class="url">Nancy Doll</a></span>
+                                                <div class="comment-meta">
+                                                    <ul class="global-list">
+                                                        <li><a href="#">08 Apr 2022</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-</p>
+                                            <div class="comment-icon">
+                                                <ul class="global-list">
+                                                    <li><a href="#"><span><i class="fa-regular fa-thumbs-up"></i></span></a></li>
+                                                    <li><a href="#"><span><i class="fa-solid fa-share"></i></span></a></li>
+                                                </ul>
+                                            </div>
+                                        </div><!-- /.comment-box -->
+                                        <ul class="children global-list">
+                                            <li>
+                                                <div class="comment_info">
+                                                    <div class="commenter-avatar">
+                                                        <a href="#"><img class="img-fluid" src="images/blog/5.png" alt="Image"></a>
+                                                    </div>
+                                                    <div class="comment-box">
+                                                        <div class="comment-title">
+                                                            <span class="title-1"><a href="#" class="url">Jhon Polok</a></span>
+                                                            <div class="comment-meta">
+                                                                <ul class="global-list">
+                                                                    <li><a href="#">08 Apr 2022</a></li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                        <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-</p>
+                                                        <div class="comment-icon">
+                                                            <ul class="global-list">
+                                                                <li><a href="#"><span><i class="fa-regular fa-thumbs-up"></i></span></a></li>
+                                                                <li><a href="#"><span><i class="fa-solid fa-share"></i></span></a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div><!-- /.comment-box -->
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="comment_info">
+                                        <div class="commenter-avatar">
+                                            <a href="#"><img class="img-fluid" src="images/blog/3.png" alt="Image"></a>
+                                        </div>
+                                        <div class="comment-box">
+                                            <div class="comment-title">
+                                                <span class="title-1"><a href="#" class="url">Dariyen Summy</a></span>
+                                                <div class="comment-meta">
+                                                    <ul class="global-list">
+                                                        <li><a href="#">08 Apr 2022</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-</p>
+                                            <div class="comment-icon">
+                                                <ul class="global-list">
+                                                    <li><a href="#"><span><i class="fa-regular fa-thumbs-up"></i></span></a></li>
+                                                    <li><a href="#"><span><i class="fa-solid fa-share"></i></span></a></li>
+                                                </ul>
+                                            </div>
+                                        </div><!-- /.comment-box -->
+                                    </div>
+                                </li>
+                            </ul>
+                        </div><!-- /.comment-area -->
+                        <div class="comment-form">
+                            <h3 class="title-style-1">Write a Comments</h3>
+                            <form action="#" class="tr-form">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input class="form-control" name="name" type="text" placeholder="Name" value="" size="30" aria-required="true" required="required">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input class="form-control" id="email" name="email" type="text" placeholder="Email" value="" size="30" aria-required="true" required="required">
+                                        </div>
+                                    </div>
+                                </div><!-- /.row -->
+                                <div class="form-group">
+                                    <textarea name="message" class="form-control" required="required" rows="8" placeholder="Write Comment"></textarea>
+                                </div>
+                                <input type="submit" class="btn btn-primary" value="Post">
+                            </form><!-- /.comment-form -->
+                        </div>
+                    </div>
+                </div>
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </section><!-- /.category-section -->
+
+</div><!-- /.sg-page-content -->
+
+
+{% endblock %}

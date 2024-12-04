@@ -1,0 +1,210 @@
+{% extends 'main.html' %}
+
+{% load static %}
+
+{% block content %}
+
+        <div class="sg-page-content">
+            <section class="product-details pb-0">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-5">
+                            <div class="sa-box">
+                                <div class="details-slider">
+                                    <div class="thumb">
+                                        <img class="img-fluid" src="{{ product.image.url }}" alt="Image">
+                                    </div>
+                                    <div class="thumb">
+                                        <img class="img-fluid" src="images/product/10.png" alt="Image">
+                                    </div>
+                                    <div class="thumb">
+                                        <img class="img-fluid" src="images/product/13.png" alt="Image">
+                                    </div>
+                                    <div class="thumb">
+                                        <img class="img-fluid" src="images/product/14.png" alt="Image">
+                                    </div>
+                                </div><!-- /.details-slider -->
+
+                                <div class="slider-nav">
+                                    <div class="thumb">
+                                        <img src="{{ product.image.url }}" alt="Image" class="img-fluid">
+                                    </div>
+                                    <div class="thumb">
+                                        <img src="images/product/10.png" alt="Image" class="img-fluid">
+                                    </div>
+                                    <div class="thumb">
+                                        <img src="images/product/13.png" alt="Image" class="img-fluid">
+                                    </div>
+                                    <div class="thumb">
+                                        <img src="images/product/14.png" alt="Image" class="img-fluid">
+                                    </div>
+                                </div><!-- /.testimonial-nav-slider -->
+                            </div>
+                        </div>
+                        <div class="col-lg-7">
+                            <div class="products-details-info sa-box">
+                                <h3>{{ product.name }}</h3>
+                                <br>
+                                <div class="sg-rating">
+
+                                    <ul class="global-list">
+                                        <li><a href="#"><span><i class="fa-regular fa-heart"></i></span>Add to Wishlist</a></li>
+                                    </ul>
+                                </div>
+                                <div class="brand-social">
+                                    <div class="brand-style-3">
+                                        <p><strong>Brand</strong> : {{ product.manufacturer }}</p>
+                                    </div>
+                                    <div class="sku">
+                                        <p><strong>SKU</strong> : {{ product.article }}</p>
+                                    </div>
+                                </div>
+                                <div class="price">
+                                  {% if product.price == product.main_price %}
+                                    <h4>${{ product.price }}</h4>
+                                  {% else %}
+                                    <h4>${{ product.discounted_price }} <del>{{ product.main_price }}</del></h4>
+                                    <p>You Save: <span>${{discount_amount}} ({{discount_percentage}}%)</span></p>
+                                  {% endif %}
+                                </div>
+                                <h6>Only {{ product.available_quantity }} left in stock.</h6>
+
+                                <div class="stock-delivery">
+                                    <div class="stock">
+                                        {% if product.available_quantity <= 0 %}
+                                            <div class="icon">
+                                                <span><i class="fa-solid fa-times"></i></span>
+                                            </div>
+                                            <div class="text">
+                                                <h5>Out of order</h5>
+                                                <p>Product out of order</p>
+
+                                            </div>
+                                        {% else %}
+                                            <div class="icon">
+                                                <span><i class="fa-solid fa-circle-check"></i></span>
+                                            </div>
+                                            <div class="text">
+                                                <h5>{{ product.get_status_display }} - *Available to order</h5>
+                                            </div>
+                                        {% endif %}
+
+
+                                    </div>
+
+                                </div>
+
+                                <h5>Product description</h5>
+                                <p>{{ product.description }}</p>
+                                <br>
+                                <ul class="size-detail mb-3 global-list">
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                </ul>
+
+
+
+                                <div class="offer">
+                                    <ul class="global-list">
+                                        <li>When ordering over $100 <span>free delivery within a 20 mile radius</span></li>
+                                        <li>When ordering over $1000 <span>free delivery within a 50 mile radius</span></li>
+                                        <li>When ordering over $5000 <span>free delivery within a 100 mile radius</span></li>
+                                    </ul>
+                                </div>
+
+                                {% if product.name in item_in_cart %}
+                                    <div class="buttons">
+                                        <a href="#" class="btn btn-success"><span class="fas fa-check"></span>Added to cart</a>
+                                        <a href="{% url 'cart:cart' %}" class="btn btn-outline-primary"><span class="fas fa-eye"></span>View Cart</a>
+                                    </div>
+                                {% else %}
+                                    <div class="buttons">
+                                        <a href="{% url 'cart:add_cart' product.id %}" class="btn btn-primary"><span class="mdi mdi-shopping-outline"></span>Add to cart</a>
+                                        <a href="{% url 'cart:add_cart' product.id %}" class="btn btn-white"><span class="mdi mdi-shopping-outline"></span>Buy now!</a>
+                                    </div>
+                                {% endif %}
+                            </div><!-- /.products-details-info -->
+                        </div>
+                    </div><!-- /.row -->
+
+                    <div class="products-description sa-box">
+                        <ul class="nav nav-tabs description-tabs" role="tablist">
+                            <li role="presentation" class="nav-item"><a class="nav-link active" href="#details" aria-controls="details" role="tab" data-bs-toggle="tab">Details</a></li>
+                            <li class="nav-item" role="presentation"><a class="nav-link" href="#specifications" aria-controls="specifications" role="tab" data-bs-toggle="tab" aria-expanded="true">Specifications</a></li>
+                            <li class="nav-item" role="presentation"><a class="nav-link" href="#delivery" aria-controls="delivery" role="tab" data-bs-toggle="tab" aria-expanded="true">Reviews</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <div role="tabpanel" class="tab-pane fade show active" id="details">
+                                <ul class="global-list">
+                                    <li>Mukta Moslin Silk Dress-12045</li>
+                                    <li>Product type: Party dress</li>
+                                    <li>Material: Mukta muslin silk dress</li>
+                                    <li>Occasion: Formal events and festivals</li>
+                                    <li>Weight: Easy to carry</li>
+                                    <li>Material way: Cotton </li>
+                                    <li>Size: Small and medium (blouse price include)</li>
+                                    <li>Color: As same as picture</li>
+                                    <li>Disclaimer: Product color may slightly very due to photographic lighting sources or your monitor settings</li>
+                                    <li>Delivery Time: 3-5 days</li>
+                                </ul>
+                            </div><!-- /.tab-pane -->
+
+                            <div role="tabpanel" class="tab-pane fade" id="specifications">
+                                <div class="specifications">
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Product Information</th>
+                                                    <th scope="col">Details</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Product Type:</td>
+                                                    <td>Velvet elegant sleeveless evening shopa</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Material:</td>
+                                                    <td>Polyester</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Lining Material:</td>
+                                                    <td>Spandex</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Fabric Type:</td>
+                                                    <td>Fleece</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Technics:</td>
+                                                    <td>Plain dyed</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Decoration:</td>
+                                                    <td>Sequins</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Size:</td>
+                                                    <td>S-M-L</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div><!-- /.row -->
+                                </div><!-- /.specifications -->
+                            </div><!-- /.tab-pane -->
+
+
+
+                        </div><!-- /.tab-content -->
+                    </div><!-- /.products-description -->
+                </div><!-- /.container -->
+            </section><!-- /.product-details -->
+
+
+
+        </div><!-- /.sg-page-content -->
+
+{% endblock %}

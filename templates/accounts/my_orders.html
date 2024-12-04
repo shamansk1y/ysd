@@ -1,0 +1,72 @@
+
+{% extends 'main.html' %}
+
+{% load static %}
+
+
+{% block content %}
+
+
+
+<div class="sg-page-content">
+
+    <section class="sg-global-content mb-3">
+        <div class="container">
+            <div class="row">
+
+                {% include 'includes/profile_sidebar.html' %}
+
+                <div class="col-lg-9">
+                    <div class="sg-table sa-box">
+                        <div class="title justify-content-between">
+                            <h1>Order History</h1>
+                        </div>
+                        <form class="woocommerce-cart-form" action="#">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Order №</th>
+                                        <th scope="col">Date</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Phone</th>
+                                        <th scope="col">Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                  {% for order in orders %}
+                                      <tr>
+                                          <th scope="row">
+                                              <div class="product">
+                                                  <a href="{% url 'accounts:order_detail' order.order_number %}">
+                                                    <span class="product-thumb">
+                                                        <i class="fa-solid fa-cart-flatbed-suitcase"></i>
+                                                    </span>
+                                                      <div class="text">
+                                                          <p> {{order.order_number}}</p>
+                                                      </div>
+                                                  </a>
+                                              </div><!-- /.product -->
+                                          </th>
+                                          <td>{{order.created_at}}</td>
+                                          <td>{{order.full_name}}</td>
+                                          <td>{{order.phone}}</td>
+                                          <td><span>${{order.order_total}}</span></td>
+                                      </tr>
+                                    {% endfor %}
+
+
+                                </tbody>
+                            </table>
+                        </form>
+                        <div class="show-more mt-4">
+                            <a href="#" class="btn btn-primary">Show more</a>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </section><!-- /.profile-section -->
+
+</div><!-- /.sg-page-content -->
+
+{% endblock %}

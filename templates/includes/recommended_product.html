@@ -1,0 +1,49 @@
+<section class="products-section">
+    <div class="container">
+        <div class="sa-box">
+            <div class="title justify-content-between">
+                <h1>Recommended products</h1>
+            </div>
+            <ul class="products grid-6">
+                {% for item in recommended_products %}
+                    <li>
+                      <div class="sg-product">
+                          <div class="product-thumb">
+                              <a href="{{ item.product.get_absolute_url }}"><img src="{{ item.product.image.url }}" alt="Image" class="img-fluid"></a>
+                          </div>
+                          <div class="product-info">
+                            {% if item.product.price == item.product.main_price %}
+                              <span class="price"> ${{ item.product.main_price }}</span>
+                            {% else %}
+                              <span class="price"><del>${{ item.product.main_price }}</del> ${{ item.product.discounted_price }}</span>
+                            {% endif %}
+
+                              <h3>
+                                <a href="{{ product.get_absolute_url }}" style="display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%;">
+                                    {{ item.product.name }}
+                                </a>
+                              </h3>
+                              <div class="icons">
+                                  <ul class="global-list">
+                                      <li><a href="{% url 'cart:add_cart' item.product.id %}"><span><i class="fas fa-cart-plus"></i></span></a></li>
+                                      <li><a href="{{ item.product.get_absolute_url }}"><span><i class="far fa-eye"></i></span></a></li>
+                                      <!-- <li><a href="#"><span><i class="far fa-heart"></i></span></a></li> -->
+                                  </ul>
+                              </div>
+                          </div>
+                          <div class="button-wrapper">
+                              <button class="btn btn-secondary" onclick="location.href='{{ item.product.get_absolute_url }}'">View</button>
+                              {% if item.product.id in product_ids_in_cart %}
+                                <a href="#" class="btn btn-success"><span class="fas fa-check"></span>Added to cart</a>
+                              {% else %}
+                                <button class="btn btn-warning btn-medium btn-round btn-icon" onclick="location.href='{% url 'cart:add_cart' item.product.id %}'">Add to cart</button>
+                              {% endif %}
+                          </div>
+                          <br/>
+                      </div><!-- /.sg-product -->
+                    </li>
+                {% endfor %}
+            </ul>
+        </div><!-- /.sa-box -->
+    </div><!-- /.container -->
+</section>

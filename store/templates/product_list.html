@@ -1,0 +1,52 @@
+{% extends 'main.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<style>
+    .hidden {
+        display: none;
+    }
+</style>
+
+<div class="sg-page-content">
+    <section class="grid-view-tab">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-lg-3">
+
+                    {% include 'store/filter_new.html' %}
+
+                </div>
+                <div class="col-md-8 col-lg-9">
+                    <div class="sg-category-content sg-filter sa-box mb-3">
+
+                        <div class="d-flex justify-content-between mb-4">
+
+                        </div>
+
+                        {% if page_products %}
+                            <ul class="products grid-4">
+                                {% for product in page_products %}
+                                    <li class="product-item {% if forloop.counter > 12 %}hidden{% endif %}">
+                                        {% include 'includes/product_card_in_list.html' %}
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                            <div class="show-more mt-4">
+                                <button id="show-more-btn" class="btn btn-primary">Show more</button>
+                            </div>
+                        {% else %}
+                            <p>No result found. Please try again.</p>
+                        {% endif %}
+
+                    </div><!-- /.sg-category-content -->
+                </div>
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </section><!-- /.category-section -->
+
+</div>
+
+{% endblock %}

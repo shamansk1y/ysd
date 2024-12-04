@@ -1,0 +1,22 @@
+<section class="categories-section pt-0">
+            <div class="container">
+                <div class="title justify-content-between">
+                    <h1>Popular Categories</h1>
+                    <a href="{% url 'store:category_list' %}">All Categories <span class="icon fas fa-arrow-right"></span></a>
+                </div>
+                <div class="category-content">
+                    <ul class="global-list grid-3">
+                      {% for category in main_page_categories%}
+                          <li>
+                              <a href="{% url 'store:product_list' slug=category.slug %}">
+                                  <span class="icon"><img src="{{ category.photo.url }}" alt="Image" class="img-fluid"></span>
+                                  <span>{{ category.name }}</span>
+                              </a>
+                          </li>
+                        {% endfor %}
+
+
+                    </ul>
+                </div>
+            </div><!-- /.container -->
+        </section><!-- /.section -->

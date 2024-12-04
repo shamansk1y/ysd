@@ -1,0 +1,115 @@
+{% extends 'main.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<section class="sg-blog-section sg-filter">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-lg-3">
+                <div class="sg-sitebar sa-box">
+                    <div class="accordion" id="accordionExample">
+
+                        <div class="accordion-item">
+                            <div class="accordion-header" id="ac1">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="true" aria-controls="collapse1">All Categories</button>
+                            </div>
+                            <div id="collapse1" class="accordion-collapse collapse show" aria-labelledby="ac1" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <ul class="global-list">
+                                        {% for category in categories %}
+                                            <li><a href="#">{{ category.name }}</a></li>
+                                        {% endfor %}
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <div class="accordion-header" id="ac2">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">All Manufacturers</button>
+                            </div>
+                            <div id="collapse2" class="accordion-collapse collapse" aria-labelledby="ac2" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <ul class="global-list">
+                                        {% for man in manufacturer %}
+                                            <li><a href="#">{{ man.title }}</a></li>
+                                        {% endfor %}
+                                    </ul>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div><!-- /.accordion -->
+                </div><!-- /.sg-sitebar -->
+            </div>
+            <div class="col-md-8 col-lg-9">
+                <div class="sa-box">
+
+                    <div class="col-lg-12">
+                        <div class="sg-table sa-box">
+                            <form class="woocommerce-cart-form" action="#">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Product</th>
+                                            <th scope="col">Qty</th>
+                                            <th scope="col">Price</th>
+                                            <th scope="col">Total</th>
+                                            <th scope="col">Add to cart</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for product in shop %}
+                                            <tr>
+                                                <td>
+                                                    <div class="product">
+                                                        <a href="details.html">
+                                                            <span class="product-thumb">
+                                                                <img src="{{ product.image.url }}" alt="Image" class="img-fluid">
+                                                            </span>
+                                                            <div class="text">
+                                                                <p>{{ product.name }}</p>
+                                                                <span>SKU: C0214D25R-140</span>
+                                                                <span>Size: 34" , Color: Yellow</span>
+                                                            </div>
+                                                        </a>
+                                                    </div><!-- /.product -->
+
+                                                </td>
+                                                <td>
+                                                    <div class="product-quantity">
+                                                        <div class="quantity" data-trigger="spinner">
+                                                            <a class="btn pull-left" href="javascript:;" data-spin="down"><span><i class="fa-solid fa-minus"></i></span></a>
+                                                            <input type="text" name="quantity" value="1" title="quantity" class="input-text">
+                                                            <a class="btn pull-right" href="javascript:;" data-spin="up"><span><i class="fa-solid fa-plus"></i></span></a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td><span>$15</span></td>
+                                                <td><span>$25.00</span></td>
+                                                <td>
+                                                    <div class="delete">
+                                                        <a href="#">Add to cart</a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+
+                                    </tbody>
+                                </table>
+                            </form>
+                        </div>
+                    </div>
+
+                </div><!-- /.sa-box -->
+            </div>
+        </div><!-- /.row -->
+    </div><!-- /.container -->
+</section><!-- /.sg-blog-section -->
+
+{% endblock %}

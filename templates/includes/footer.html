@@ -1,0 +1,91 @@
+{% load static %}
+
+<footer class="footer-section">
+    <div class="container">
+        <div class="footer-top">
+            <div class="row">
+                <div class="col-md-6 col-lg-3">
+                    <div class="footer-widget">
+                        <h3>About</h3>
+                        <p>York Snack Food Distr. Inc., based in Philadelphia, Pennsylvania, has been a key player in the U.S. snack market for over 20 years. Specializing in chips, snacks, and candy, the company distributes popular brands such as Wise, Frito Lay, Utz, Mr. G, Rap Snack, and Andy Capp's.</p>
+                        <div class="social">
+                            <ul class="global-list">
+                                <li><a href="#"><span><i class="fa-brands fa-facebook"></i></span></a></li>
+                                <li><a href="#"><span><i class="fa-brands fa-twitter"></i></span></a></li>
+                                <li><a href="#"><span><i class="fa-brands fa-linkedin"></i></span></a></li>
+                                <li><a href="#"><span><i class="fa-brands fa-instagram"></i></span></a></li>
+                                <li><a href="#"><span><i class="fa-brands fa-pinterest"></i></span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-2">
+                    <div class="footer-widget">
+                        <h3>Useful Links</h3>
+                        <ul class="global-list">
+                            <li><a href="{% url 'home' %}">Home</a></li>
+                            <li><a href="{% url 'store:category_list' %}">All Categories</a></li>
+                            <li><a href="{% url 'store:brands' %}">All Brands</a></li>
+                            <li><a href="{% url 'store:all_product_list' %}">All Products</a></li>
+                            <li><a href="{% url 'delivery' %}">Delivery</a></li>
+                            <li><a href="{% url 'payment' %}">Payment</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-2">
+                    <div class="footer-widget">
+                        <h3>My Account</h3>
+                        <ul class="global-list">
+                            <li><a href="#">Login</a></li>
+                            <li><a href="#">Purchase History</a></li>
+                            <li><a href="#">My Wishlist</a></li>
+                            <li><a href="#">Track Order</a></li>
+                            <li><a href="#">My Account</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="footer-widget">
+                        <h3>Contact Us</h3>
+                        <div class="address">
+                            <ul class="global-list">
+                               <li>
+                                    <h4><span><i class="fa-solid fa-house"></i></span>Address</h4>
+                                    <p>{{contacts.address}}</p>
+                               </li>
+                               <li>
+                                    <h4><span><i class="fa-solid fa-envelope"></i></span>Email</h4>
+                                    <a href="#">{{contacts.email}}</a>
+                               </li>
+                               <li>
+                                    <h4><span><i class="fa-solid fa-phone"></i></span>Phone</h4>
+                                    <a href="tel:{{contacts.phone_1}}">{{contacts.phone_1}}</a>
+                               </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-2">
+                    <div class="footer-widget">
+                        <h3>For partners</h3>
+                        <ul class="global-list">
+                            <li><a href="#">Cooperation</a></li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </div><!-- /.footer-top -->
+
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="footer-bottom-content">
+                <div class="copyright">
+                    <p>Copyright &copy; 2024 York Snack Food Distribution Inc - All Rights Reserved.</p>
+                    <p>Developer by shamansk1y</p>
+                </div>
+            </div>
+        </div><!-- /.container -->
+    </div><!-- /.footer-bottom -->
+</footer><!-- /.footer-section -->

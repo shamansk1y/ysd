@@ -1,0 +1,110 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block content %}
+
+<section class="section-content padding-y bg">
+<div class="container">
+	<div class="sg-breadcrumb">
+			<ol class="breadcrumb justify-content-center">
+					<li class="breadcrumb-item"><a href="{% url 'cart:cart' %}">View Cart</a></li>
+					<li class="breadcrumb-item"><a href="{% url 'cart:checkout' %}">Check Out</a></li>
+					<li class="breadcrumb-item">Confirm Order</li>
+			</ol>
+	</div><!-- /.sg-breadcrumb -->
+<!-- ============================ COMPONENT 1 ================================= -->
+
+<div class="row">
+	<aside class="col-lg-6">
+<div class="card">
+  <div class="card-body">
+    <h4 class="card-title mb-4">Billing Address</h4>
+    <form action="{% url 'orders:place_order' %}" method="POST">
+      {% csrf_token %}
+      <div class="form-row">
+        <div class="col form-group">
+          <input type="text" name="first_name" class="form-control" placeholder="First Name" required="required">
+        </div>
+        <div class="col form-group">
+          <input type="text" name="last_name" placeholder="Last Name" class="form-control" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col form-group">
+          <input type="email" name="email" placeholder="Email" class="form-control" required>
+        </div>
+        <div class="col form-group">
+          <input type="text" name="phone" placeholder="Phone Number" class="form-control" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col form-group">
+          <input type="text" name="address_line_1" placeholder="Address Line 1" class="form-control" required>
+        </div>
+        <div class="col form-group">
+          <input type="text" name="address_line_2" placeholder="Address Line 2" class="form-control">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col form-group">
+          <input type="text" name="city" placeholder="City" class="form-control" required>
+        </div>
+        <div class="col form-group">
+          <input type="text" name="state" placeholder="State" class="form-control" required>
+        </div>
+        <div class="col form-group">
+          <input type="text" name="country" placeholder="Country" class="form-control" required>
+        </div>
+        </div>
+        <div class="form-row">
+          <textarea name="order_note" rows="2" placeholder="Order Note" class="form-control"></textarea>
+        </div>
+      <button type="submit" name="submit" class="btn btn-primary btn-block mt-4">Place Order</button>
+      </form>
+  </div>
+</div> <!-- card.// -->
+
+	</aside> <!-- col.// -->
+	<aside class="col-lg-6">
+
+		<div class="card">
+		<div class="card-body">
+
+      <h4 class="card-title mb-4">Order details</h4>
+          <div class="p-30 mb-5">
+              <div class="border-bottom">
+                  <h5 class="mb-3">Product:</h5>
+                  {% for cart_item in cart_items %}
+                      <hr>
+                      <div class="d-flex justify-content-between">
+                          <p>Product: <strong>{{ cart_item.product.name }}</strong><br> Bags in case: <strong>{{ cart_item.product.bags_in_case }}</strong><br> Price: <strong>{{ cart_item.product.price }} $</strong><br> Quantity: <strong>{{ cart_item.quantity }} qty</strong></p>
+                          <p>{{ cart_item.item_total }} $</p>
+                      </div>
+                  {% endfor %}
+              </div>
+
+              <div class="pt-2">
+                  <div class="d-flex justify-content-between mt-2">
+                      <h5>Total:</h5>
+                      <h5>{{ total }} $</h5>
+                  </div>
+              </div>
+          </div>
+
+			<a href="{% url 'store:all_product_list' %}" class="btn btn-light btn-block">Continue Shopping</a>
+		</div> <!-- card-body.// -->
+		</div> <!-- card.// -->
+
+
+</aside> <!-- col.// -->
+
+
+</div> <!-- row.// -->
+
+<!-- ============================ COMPONENT 1 END .// ================================= -->
+
+</div> <!-- container .//  -->
+</section>
+<!-- ========================= SECTION CONTENT END// ========================= -->
+
+{% endblock %}

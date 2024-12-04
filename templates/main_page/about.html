@@ -1,0 +1,74 @@
+{% extends 'main.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="sg-page-content">
+
+    <section class="about-section">
+        <div class="container">
+            <div class="sa-box">
+                <div class="page-title">
+                    <h1>About Us</h1>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="about-text">
+                            <h2>Who we are</h2>
+                            <p>York Snack Food Distr. Inc., based in Philadelphia, Pennsylvania, has been a key player in the U.S. snack market for over 20 years. Specializing in chips, snacks, and candy, the company distributes popular brands such as Wise, Frito Lay, Utz, Mr. G, Rap Snack, and Andy Capp's. Known for its commitment to quality and customer satisfaction, York Snack Food has built a loyal customer base by offering a diverse selection of tasty treats that cater to all tastes and preferences. </p>
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="fun-fact">
+                                        <h3>25+</h3>
+                                        <p>Business Year</p>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="fun-fact">
+                                        <h3>50+</h3>
+                                        <p>Brands</p>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="fun-fact">
+                                        <h3>10000+</h3>
+                                        <p>Сompleted orders</p>
+                                    </div>
+                                </div>
+                            </div><!-- /.row -->
+                            <ul class="global-list">
+                                <li>Over 20 years of experience in the snack food industry</li>
+                                <li>Exclusive distributor of top brands like Wise, Frito Lay, and Utz</li>
+                                <li>Committed to providing high-quality snacks and candies</li>
+                                <li>Dedicated to excellent customer service and satisfaction</li>
+                            </ul>
+                        </div><!-- /.about-text -->
+                    </div>
+                    <div class="col-md-6">
+                        <div class="gallery-content">
+                            <h2>Our Gallery</h2>
+                            <div class="gallery-slider">
+                                <div class="thumb">
+                                    <img src="{% static 'images/team/team_1.jpg' %}" alt="Image" class="img-fluid">
+                                </div>
+                                <div class="thumb">
+                                    <img src="{% static 'images/team/team_2.jpg' %}" alt="Image" class="img-fluid">
+                                </div>
+                                <div class="thumb">
+                                    <img src="{% static 'images/team/team_3.jpg' %}" alt="Image" class="img-fluid">
+                                </div>
+                            </div>
+                        </div><!-- /.gallery-content -->
+                    </div>
+                </div><!-- /.row -->
+            </div><!-- /.sa-box -->
+        </div><!-- /.container -->
+    </section><!-- /.about-section -->
+
+    
+
+
+</div><!-- /.sg-page-content -->
+
+{% endblock %}
